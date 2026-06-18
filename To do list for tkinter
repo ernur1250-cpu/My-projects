@@ -1,0 +1,28 @@
+port tkinter as tk
+tereze=tk.Tk()
+tereze.geometry("450x500")
+def kosu():
+	tapsyrma=oris.get()
+	if tapsyrma!="":
+		tizim.insert(tk.END,tapsyrma)
+		oris.delete(0,tk.END)
+def oshiru():
+	tandalgan_tizim=tizim.curselection()
+	if tandalgan_tizim:
+		tizim.delete(tandalgan_tizim)
+
+takyryp=tk.Label(tereze,text="Бүгінгі жоспарларыңыз",font=("Arial",13))
+takyryp.pack(pady=20)
+
+oris=tk.Entry(tereze,font=("Arial",13,"bold"))
+oris.pack(pady=10)
+
+kosu_batyrmasy=tk.Button(tereze,text="+",fg="blue",bg="white",font=("Arial",13),command=kosu)
+kosu_batyrmasy.pack(pady=20)
+
+tizim=tk.Listbox(tereze,font=("Arial",13),width=28,height=10)
+tizim.pack(pady=15)
+
+oshiru_batyrmasy=tk.Button(tereze,text="Өшіру",fg="red",bg="white",font=("Arial",13),command=oshiru)
+oshiru_batyrmasy.pack(pady=20)
+tereze.mainloop()
