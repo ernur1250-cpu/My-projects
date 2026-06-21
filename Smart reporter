@@ -1,0 +1,26 @@
+import random
+import tkinter as tk
+tereze=tk.Tk()
+tereze.geometry("450x500")
+jauaptar=["Иә сөзсіз!","менің ойымша иә!","Өз қалауың","жоқ","Сенің істегенін өзіне байланысты"]
+nuskaulyk=tk.Label(tereze,text="кез келген сұрағыңды қой",font=("Arial",13))
+nuskaulyk.pack(pady=20)
+
+oris=tk.Entry(tereze,font=("Arial",13),width=15,justify="center")
+oris.pack(pady=20)
+jazu=tk.Label(tereze,text="Жауап осында шығады",fg="gray",font=("Arial",13))
+jazu.pack(pady=20)
+
+def logica():
+	surak=oris.get()
+	if surak=="":
+		jazu.config(text="алдымен сөз жаз!",font=("Arial",13),fg="red")
+		return
+	kezdeisok_jauap=random.choice(jauaptar)
+	jazu.config(text=kezdeisok_jauap,fg="green")
+	oris.delete(0,tk.END)
+
+batyrma=tk.Button(tereze,text="Сұрау",fg="white",bg="blue",font=("Arial",13),command=logica)
+batyrma.pack(pady=20)
+
+tereze.mainloop()
